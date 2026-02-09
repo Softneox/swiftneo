@@ -1,0 +1,248 @@
+================================================================================
+                    SWIFTNEO END-USER LICENSE AGREEMENT (EULA)
+                    Copyright © 2026 Softneox Technologies
+================================================================================
+
+IMPORTANT: READ THIS AGREEMENT CAREFULLY BEFORE INSTALLING OR USING SWIFTNEO.
+BY INSTALLING, COPYING, OR OTHERWISE USING THIS SOFTWARE, YOU AGREE TO BE
+BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT INSTALL OR
+USE THIS SOFTWARE.
+
+================================================================================
+1. LICENSE GRANT
+================================================================================
+
+Softneox Technologies ("Licensor") grants you ("Licensee") a limited,
+non-exclusive, non-transferable, non-sublicensable, revocable license to use
+SwiftNeo (the "Software") for personal, non-commercial purposes only.
+
+This license allows you to:
+✓ Install and use the Software on your personal Android device(s)
+✓ Download and stream videos for your personal offline viewing
+✓ Use all features provided in the Software for non-commercial purposes
+
+This license does NOT allow you:
+✗ Use the Software for commercial purposes (business, monetization, etc.)
+✗ Distribute, sublicense, or transfer the Software to others
+✗ Modify, reverse engineer, decompile, or disassemble the Software
+✗ Create derivative works based on the Software
+✗ Remove or alter any copyright notices or trademarks
+✗ Use the Software in violation of applicable laws or YouTube's Terms of Service
+
+================================================================================
+2. OWNERSHIP
+================================================================================
+
+The Software is licensed, not sold. Softneox Technologies retains all right,
+title, and interest in and to the Software, including all intellectual property
+rights (copyrights, trademarks, patents, trade secrets, etc.).
+
+You acknowledge that:
+✓ The Software is proprietary to Softneox Technologies
+✓ Source code is confidential and protected as a trade secret
+✓ You acquire no ownership rights in the Software
+✓ All rights not expressly granted are reserved by Licensor
+
+================================================================================
+3. RESTRICTIONS
+================================================================================
+
+You may NOT:
+✗ Reverse engineer, decompile, disassemble, or attempt to derive source code
+✗ Modify, adapt, translate, or create derivative works
+✗ Distribute, sublicense, lease, rent, or otherwise transfer the Software
+✗ Remove, alter, or obscure any copyright, trademark, or proprietary notices
+✗ Use the Software for any illegal, fraudulent, or malicious purposes
+✗ Circumvent any technical protection measures in the Software
+✗ Use the Software to violate YouTube's Terms of Service or copyright laws
+✗ Use the Software for commercial purposes (business use, monetization, etc.)
+
+VIOLATION of these restrictions will result in immediate termination of this
+license and may expose you to civil and criminal liability.
+
+================================================================================
+4. THIRD-PARTY CONTENT & SERVICES
+================================================================================
+
+SwiftNeo provides access to YouTube content but does NOT host, store, or
+distribute any copyrighted material. All media is streamed/downloaded directly
+from YouTube's official servers.
+
+You acknowledge and agree that:
+✓ You are solely responsible for your use of YouTube content
+✓ You must comply with YouTube's Terms of Service
+✓ You must respect copyright laws and fair use principles
+✓ You may only download content for PERSONAL, NON-COMMERCIAL use
+✓ You may NOT redistribute, republish, or monetize downloaded content
+✓ Softneox Technologies is NOT responsible for YouTube content availability,
+  quality, legality, or any changes to YouTube's website/API
+
+YouTube is a trademark of Google LLC. SwiftNeo is NOT affiliated with,
+endorsed by, or connected to Google LLC or YouTube in any way.
+
+================================================================================
+5. ACCEPTABLE USE POLICY
+================================================================================
+
+You may ONLY use SwiftNeo for:
+✓ Personal entertainment and offline viewing
+✓ Educational purposes (personal learning)
+✓ Archiving content you have rights to
+✓ Fair use as defined by applicable copyright law
+
+You may NOT use SwiftNeo for:
+✗ Commercial purposes (business, monetization, paid services)
+✗ Mass downloading or content scraping
+✗ Copyright infringement or piracy
+✗ Harassment, spam, or malicious activities
+✗ Illegal activities or violating others' rights
+✗ Circumventing regional restrictions (geo-blocking)
+
+Violations may result in license termination and legal action.
+
+================================================================================
+6. DISCLAIMER OF WARRANTIES
+================================================================================
+
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY
+KIND, EITHER EXPRESS OR IMPLIED.
+
+SOFTNEOX TECHNOLOGIES DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:
+✗ MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE
+✗ NON-INFRINGEMENT OF THIRD-PARTY RIGHTS
+✗ ACCURACY, COMPLETENESS, OR RELIABILITY OF CONTENT
+✗ UNINTERRUPTED, SECURE, OR ERROR-FREE OPERATION
+✗ COMPATIBILITY WITH ALL DEVICES OR ANDROID VERSIONS
+✗ PROTECTION AGAINST DATA LOSS OR SECURITY BREACHES
+
+YOU USE THE SOFTWARE AT YOUR OWN RISK. SOFTNEOX TECHNOLOGIES DOES NOT GUARANTEE
+THAT THE SOFTWARE WILL MEET YOUR REQUIREMENTS OR THAT OPERATION WILL BE
+UNINTERRUPTED OR ERROR-FREE.
+
+================================================================================
+7. LIMITATION OF LIABILITY
+================================================================================
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SOFTNEOX TECHNOLOGIES SHALL
+NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
+PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO:
+
+✗ LOSS OF PROFITS, REVENUE, OR BUSINESS
+✗ LOSS OF DATA OR CONTENT
+✗ COST OF SUBSTITUTE GOODS OR SERVICES
+✗ DAMAGES FROM UNAUTHORIZED ACCESS OR DATA BREACHES
+✗ DAMAGES FROM THIRD-PARTY CONTENT OR SERVICES
+✗ ANY OTHER DAMAGES ARISING FROM USE OR INABILITY TO USE THE SOFTWARE
+
+IN NO EVENT SHALL SOFTNEOX TECHNOLOGIES' TOTAL LIABILITY EXCEED THE AMOUNT YOU
+PAID FOR THE SOFTWARE (WHICH IS ZERO, AS THE SOFTWARE IS FREE).
+
+YOU ACKNOWLEDGE THAT YOU HAVE READ THIS DISCLAIMER AND ACCEPT THE RISKS
+ASSOCIATED WITH USING THE SOFTWARE.
+
+================================================================================
+8. INDEMNIFICATION
+================================================================================
+
+You agree to indemnify, defend, and hold harmless Softneox Technologies, its
+officers, directors, employees, and agents from any claims, damages, losses,
+liabilities, costs, or expenses (including reasonable attorneys' fees) arising
+from:
+
+✓ Your use of the Software in violation of this Agreement
+✓ Your violation of YouTube's Terms of Service or copyright laws
+✓ Your infringement of any third-party rights
+✓ Any content you download, share, or distribute using the Software
+✓ Any illegal or unauthorized use of the Software
+
+================================================================================
+9. TERM AND TERMINATION
+================================================================================
+
+This license is effective until terminated. Your rights under this license will
+terminate automatically without notice if you fail to comply with any term of
+this Agreement.
+
+Upon termination:
+✓ You must cease all use of the Software
+✓ You must uninstall and delete all copies of the Software
+✓ All licenses granted to you automatically terminate
+✓ Sections 2 (Ownership), 6 (Disclaimer), 7 (Liability), 8 (Indemnification),
+  and 11 (Governing Law) survive termination
+
+You may terminate this license anytime by uninstalling the Software.
+
+================================================================================
+10. UPDATES AND SUPPORT
+================================================================================
+
+Softneox Technologies may provide updates, patches, or new versions of the
+Software at its discretion. Updates may be required to continue using the
+Software.
+
+Support is provided on a "best effort" basis via:
+✓ GitHub Issues: https://github.com/softneox/SwiftNeo/issues
+✓ Email: support@softneox.dev
+
+No warranty is made regarding response time or issue resolution.
+
+================================================================================
+11. GOVERNING LAW AND JURISDICTION
+================================================================================
+
+This Agreement shall be governed by and construed in accordance with the laws
+of India, without regard to its conflict of law provisions.
+
+Any disputes arising from this Agreement shall be subject to the exclusive
+jurisdiction of the courts in Delhi, India.
+
+================================================================================
+12. SEVERABILITY
+================================================================================
+
+If any provision of this Agreement is held to be invalid or unenforceable, the
+remaining provisions shall remain in full force and effect.
+
+================================================================================
+13. ENTIRE AGREEMENT
+================================================================================
+
+This Agreement constitutes the entire agreement between you and Softneox
+Technologies regarding the Software and supersedes all prior agreements,
+understandings, or communications, whether written or oral.
+
+This Agreement may only be modified by a written amendment signed by an
+authorized representative of Softneox Technologies.
+
+================================================================================
+14. NO WAIVER
+================================================================================
+
+The failure of Softneox Technologies to enforce any provision of this Agreement
+shall not constitute a waiver of that provision or any other provision.
+
+================================================================================
+15. CONTACT INFORMATION
+================================================================================
+
+For questions about this Agreement or the Software:
+
+Softneox Technologies
+Email: legal@softneox.dev
+Website: https://<username>.github.io/SwiftNeo-Website/
+GitHub: https://github.com/softneox/SwiftNeo-Website
+
+================================================================================
+ACKNOWLEDGMENT
+================================================================================
+
+BY INSTALLING OR USING SWIFTNEO, YOU ACKNOWLEDGE THAT YOU HAVE READ,
+UNDERSTOOD, AND AGREE TO BE BOUND BY THE TERMS OF THIS END-USER LICENSE
+AGREEMENT.
+
+IF YOU DO NOT AGREE TO THESE TERMS, DO NOT INSTALL OR USE SWIFTNEO.
+
+================================================================================
+LAST UPDATED: February 7, 2026
+VERSION: 1.0.0
+================================================================================

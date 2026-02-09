@@ -1,0 +1,287 @@
+================================================================================
+                    SWIFTNEO PRIVACY POLICY
+                    Copyright © 2026 Softneox Technologies
+================================================================================
+
+PROJECT: SwiftNeo (com.softneox.swiftneo)
+VERSION: 1.0.0
+EFFECTIVE DATE: February 7, 2026
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+SwiftNeo collects ZERO personal data. Period.
+
+We do not track you, analyze you, profile you, or send any information about
+you or your usage to any server, anywhere, ever.
+
+This is not a "we collect minimal data" policy. This is a "we collect NO data"
+policy.
+
+================================================================================
+WHAT WE DO NOT COLLECT
+================================================================================
+
+SwiftNeo does NOT collect, store, transmit, or process ANY of the following:
+
+✗ Personal Identifiers
+  • Name, email, phone number, address
+  • Device ID, IMEI, MAC address, serial number
+  • IP address, location data, GPS coordinates
+  • Account information or authentication tokens
+
+✗ Usage Data
+  • Videos you watch or download
+  • Search queries or browsing history
+  • App usage time or frequency
+  • Feature usage patterns or preferences
+  • Crash reports or error logs
+
+✗ Technical Data
+  • Device model, OS version, screen resolution
+  • Network type, connection speed, carrier
+  • Installed apps or system configuration
+  • Storage usage or file system information
+
+✗ Behavioral Data
+  • Click patterns, tap locations, gesture data
+  • Content preferences or recommendations
+  • Social interactions or sharing activity
+  • Advertising IDs or tracking identifiers
+
+✗ Third-Party Data
+  • No integration with Google Analytics, Firebase, or similar
+  • No advertising SDKs or monetization networks
+  • No social media plugins or trackers
+  • No cloud services or external APIs (beyond YouTube video streaming)
+
+================================================================================
+WHAT DATA IS STORED LOCALLY
+================================================================================
+
+The ONLY data SwiftNeo stores is on YOUR DEVICE and NEVER leaves it:
+
+1. DOWNLOAD HISTORY
+   • Videos/audio you've downloaded
+   • File names, sizes, and local storage paths
+   • Timestamp of download
+   Location: Local device storage (Scoped Storage)
+   Encryption: None (local only, protected by device security)
+   Retention: Until you delete downloads or clear history
+
+2. APP SETTINGS
+   • Selected language (English/Hindi)
+   • Default video/audio quality preferences
+   • Playback settings (autoplay, repeat, etc.)
+   • Theme preferences (dark mode, etc.)
+   Location: Hive local database (app private storage)
+   Encryption: Yes (Hive uses AES-256 encryption)
+   Retention: Until app uninstall or settings reset
+
+3. CACHE
+   • Thumbnail images for faster loading
+   • Temporary video buffers for smooth playback
+   • WebView cache for YouTube page rendering
+   Location: App cache directory
+   Encryption: None (temporary files)
+   Retention: Automatically cleared by Android system or manual cache clear
+
+4. SEARCH HISTORY (Optional)
+   • Search queries you enter in the app
+   • Can be disabled in settings
+   Location: Hive local database
+   Encryption: Yes (AES-256)
+   Retention: Until cleared by user or app uninstall
+
+ALL LOCAL DATA IS:
+✓ Accessible ONLY by SwiftNeo app on your device
+✓ Protected by Android's app sandboxing
+✓ Deleted when you uninstall the app
+✓ Never transmitted to any server or third party
+✓ Under YOUR control (you can delete anytime)
+
+================================================================================
+NETWORK COMMUNICATIONS
+================================================================================
+
+SwiftNeo ONLY communicates with the following endpoints:
+
+1. YOUTUBE.COM / YOUTUBEI.GOOGLEVIDEO.COM
+   Purpose: Stream video/audio content directly from YouTube
+   Data Sent: Standard HTTP requests for video URLs
+   Data Received: Video/audio streams, thumbnails, metadata
+   Note: This is the same traffic as watching on YouTube website
+
+2. WWW.YOUTUBE.COM (via WebView)
+   Purpose: Render YouTube website for browsing/searching
+   Data Sent: Search queries, page navigation
+   Data Received: YouTube web pages, video listings
+   Note: Subject to YouTube's own privacy policy
+
+3. NO OTHER NETWORK CALLS
+   SwiftNeo makes NO calls to:
+   • Softneox servers or domains
+   • Analytics services (Google Analytics, Firebase, etc.)
+   • Crash reporting services (Crashlytics, Sentry, etc.)
+   • Advertising networks or trackers
+   • Cloud storage or sync services
+   • Any third-party APIs beyond YouTube
+
+================================================================================
+PERMISSIONS & DATA ACCESS
+================================================================================
+
+SwiftNeo requests ONLY these permissions (all essential for core features):
+
+1. INTERNET
+   Access: Network connectivity
+   Data Impact: Allows streaming from YouTube
+   Privacy Risk: LOW (standard for any internet app)
+
+2. WRITE_EXTERNAL_STORAGE
+   Access: Save files to device storage
+   Data Impact: Stores downloaded videos/audio in your gallery/downloads
+   Privacy Risk: LOW (you control what's saved)
+
+3. FOREGROUND_SERVICE
+   Access: Run background audio playback
+   Data Impact: None (system-level permission)
+   Privacy Risk: NONE
+
+4. WAKE_LOCK
+   Access: Keep screen awake during playback
+   Data Impact: None (system-level permission)
+   Privacy Risk: NONE
+
+SwiftNeo does NOT request:
+✗ Location permissions
+✗ Contacts access
+✗ Camera/Microphone access
+✗ SMS/Call log access
+✗ Calendar access
+✗ Biometric data
+✗ Any other sensitive permissions
+
+================================================================================
+THIRD-PARTY SERVICES
+================================================================================
+
+SwiftNeo does NOT integrate with ANY third-party services for:
+
+• Analytics or user tracking
+• Crash reporting or error monitoring
+• Advertising or monetization
+• Cloud storage or backup
+• Social media sharing (beyond Android system share)
+• Authentication or user accounts
+• Content delivery networks (CDN)
+• Push notifications
+
+The ONLY external service SwiftNeo interacts with is YouTube itself, for the
+purpose of streaming video/audio content. This interaction is direct and
+unmediated - we do not proxy or intercept YouTube traffic.
+
+================================================================================
+OPEN-SOURCE DEPENDENCIES
+================================================================================
+
+SwiftNeo uses these open-source libraries (all privacy-respecting):
+
+• youtube_explode_dart - Extracts YouTube video URLs (no tracking)
+• dio - HTTP client (no telemetry)
+• just_audio - Audio playback (local only)
+• chewie - Video player UI (no tracking)
+• hive - Local encrypted storage (100% offline)
+• path_provider - Access device storage (Android standard)
+
+None of these libraries collect or transmit user data. All are well-audited
+and widely used in the Flutter community.
+
+================================================================================
+DATA RETENTION & DELETION
+================================================================================
+
+LOCAL DATA RETENTION:
+• Download history: Until you delete downloads or clear history
+• App settings: Until app uninstall or manual reset
+• Cache: Automatically managed by Android system
+• Search history: Until cleared by user (if enabled)
+
+DELETING YOUR DATA:
+1. Clear individual downloads: Long-press download → Delete
+2. Clear all history: Settings → Clear History
+3. Clear all  Android Settings → Apps → SwiftNeo → Storage → Clear Data
+4. Complete removal: Uninstall SwiftNeo (deletes ALL app data)
+
+After uninstall, NO data remains on your device except downloaded files you
+explicitly saved to your gallery/downloads folder (which you control).
+
+================================================================================
+CHILDREN'S PRIVACY
+================================================================================
+
+SwiftNeo is not intended for children under 13. However, since we collect NO
+personal data whatsoever, there is no risk of children's data being collected
+or misused. Parents can use SwiftNeo without concern about data privacy.
+
+================================================================================
+POLICY UPDATES
+================================================================================
+
+This privacy policy may be updated if SwiftNeo's functionality changes.
+However, our commitment to ZERO data collection will NEVER change.
+
+If we ever introduce features that require data collection (highly unlikely),
+we will:
+1. Update this policy with clear explanations
+2. Require explicit opt-in consent from users
+3. Provide options to disable data collection
+4. Maintain transparency about what data is collected and why
+
+Current policy version: 1.0.0 (February 7, 2026)
+
+================================================================================
+YOUR RIGHTS
+================================================================================
+
+Since SwiftNeo collects NO personal data, traditional privacy rights
+(access, rectification, erasure, portability) are not applicable.
+
+However, you have these rights:
+
+✓ Right to use offline: All features work without internet (except streaming)
+✓ Right to delete locally: Clear any data stored on your device anytime
+✓ Right to uninstall: Remove app and all associated data completely
+✓ Right to inspect: SwiftNeo is closed-source but uses only open-source
+  dependencies which can be audited
+✓ Right to report: Contact us if you have privacy concerns
+
+================================================================================
+CONTACT
+================================================================================
+
+Privacy Questions: privacy@softneox.dev
+General Support: support@softneox.dev
+Security Issues: security@softneox.dev
+
+We respond to all privacy inquiries within 48 hours.
+
+================================================================================
+COMPLIANCE STATEMENT
+================================================================================
+
+SwiftNeo complies with:
+✓ GDPR (General Data Protection Regulation) - Article 6(1)(a) - Consent
+  (though no data collected, so no consent needed)
+✓ CCPA (California Consumer Privacy Act) - No personal information sold
+✓ COPPA (Children's Online Privacy Protection Act) - No data collection
+✓ India's Digital Personal Data Protection Act - No data processing
+
+Since SwiftNeo processes ZERO personal data, it is exempt from most privacy
+regulations. This policy is provided for transparency and user assurance.
+
+================================================================================
+LAST UPDATED: February 7, 2026
+VERSION: 1.0.0
+================================================================================
