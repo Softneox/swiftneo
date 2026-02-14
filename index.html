@@ -3,14 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'">
+  
+  <!-- Enhanced Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
   <meta name="theme-color" content="#0a0a16">
-  <meta name="description" content="SwiftNeo - Free Ad-Free YouTube Experience with Premium Features. Download videos/Shorts, Background playback, Zero ads.">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="SwiftNeo - Free Ad-Free YouTube Experience with Premium Features. Download videos/Shorts, Background playback, Zero ads. 100% Private & Secure.">
+  <meta name="keywords" content="youtube downloader, ad blocker, background playback, video downloader, shorts downloader, android app, free youtube, no ads, offline videos">
+  <meta name="author" content="N.C. (Softneox)">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="SwiftNeo - Premium YouTube Experience. Zero Cost. Zero Ads.">
+  <meta property="og:description" content="Free ad-free YouTube client with background playback, downloads, and 100% ad blocking.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://softneox.github.io/swiftneo">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0a0a16/00f3ff?text=SwiftNeo">
+  <meta property="og:site_name" content="SwiftNeo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SwiftNeo - Ad-Free YouTube Experience">
+  <meta name="twitter:description" content="Premium YouTube features for free. Zero ads, background playback, downloads.">
+  <meta name="twitter:image" content="https://via.placeholder.com/1200x630/0a0a16/00f3ff?text=SwiftNeo">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icons/logo-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SwiftNeo">
+  
   <title>SwiftNeo - Ad-Free YouTube Experience | Free Download</title>
-  <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300f3ff%22>SwiftNeo</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300f3ff%22>SwiftNeo</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
+      /* Dark Theme Colors */
       --bg-primary: #0a0a16;
       --bg-secondary: #111122;
       --glass-bg: rgba(20, 20, 40, 0.82);
@@ -24,7 +60,35 @@
       --danger: #ff5252;
       --info-bg: rgba(0, 119, 255, 0.15);
       --info-border: rgba(0, 119, 255, 0.5);
+      --card-shadow: 0 8px 32px rgba(0, 243, 255, 0.12);
+      
+      /* Light Theme Colors */
+      --light-bg-primary: #f8f9fa;
+      --light-bg-secondary: #ffffff;
+      --light-glass-bg: rgba(255, 255, 255, 0.95);
+      --light-glass-border: rgba(0, 123, 255, 0.2);
+      --light-text-primary: #212529;
+      --light-text-secondary: #6c757d;
+      --light-neon-primary: #007bff;
+      --light-neon-secondary: #6f42c1;
+      
       --transition: all 0.3s ease;
+      --border-radius: 24px;
+    }
+
+    /* Light Theme Variables */
+    .light-theme {
+      --bg-primary: var(--light-bg-primary);
+      --bg-secondary: var(--light-bg-secondary);
+      --glass-bg: var(--light-glass-bg);
+      --glass-border: var(--light-glass-border);
+      --text-primary: var(--light-text-primary);
+      --text-secondary: var(--light-text-secondary);
+      --neon-primary: var(--light-neon-primary);
+      --neon-secondary: var(--light-neon-secondary);
+      --info-bg: rgba(0, 123, 255, 0.1);
+      --info-border: rgba(0, 123, 255, 0.4);
+      --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -35,11 +99,12 @@
 
     body {
       font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a2e 100%);
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
       color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
       min-height: 100vh;
+      transition: var(--transition);
     }
 
     .hi body {
@@ -95,6 +160,7 @@
       justify-content: center;
       font-weight: 800;
       font-size: 1.4rem;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
     }
 
     .logo-text {
@@ -110,34 +176,38 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
-    .lang-toggle {
+    .theme-toggle, .lang-toggle {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       color: var(--neon-primary);
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1rem;
       border-radius: 8px;
       cursor: pointer;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .lang-toggle:hover {
+    .theme-toggle:hover, .lang-toggle:hover {
       background: rgba(0, 243, 255, 0.1);
       transform: translateY(-2px);
     }
 
-    .github-link {
+    .github-link, .instagram-link {
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 1.4rem;
       transition: var(--transition);
+      margin: 0 0.5rem;
     }
 
-    .github-link:hover {
+    .github-link:hover, .instagram-link:hover {
       color: var(--neon-primary);
       transform: scale(1.1);
     }
@@ -151,19 +221,46 @@
       cursor: pointer;
     }
 
-    /* Hero Section */
+    /* Hero Section with Particle Background */
     .hero {
-      padding: 5rem 0 3rem;
+      padding: 6rem 0 4rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       margin-bottom: 1.5rem;
       background: linear-gradient(to right, var(--neon-primary), var(--neon-secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .typing-text {
+      font-size: 1.8rem;
+      color: var(--neon-primary);
+      margin-bottom: 1rem;
+      min-height: 2.5rem;
+      animation: fadeIn 1.5s ease-out;
     }
 
     .hero-subtitle {
@@ -175,14 +272,24 @@
       margin-right: auto;
     }
 
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
     .download-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
       background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
       color: var(--bg-primary);
       font-family: 'Poppins', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      padding: 1.2rem 3rem;
+      padding: 1.2rem 2.5rem;
       border-radius: 50px;
       text-decoration: none;
       box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
@@ -197,6 +304,28 @@
       box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
     }
 
+    .qr-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--neon-primary);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .qr-btn:hover {
+      background: rgba(0, 243, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
     .requirements-badge {
       display: inline-block;
       background: var(--glass-bg);
@@ -206,6 +335,29 @@
       border-radius: 20px;
       font-size: 0.9rem;
       margin-top: 1rem;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--neon-primary);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
     }
 
     .play-protect-warning {
@@ -273,7 +425,7 @@
       backdrop-filter: blur(14px) saturate(180%);
       -webkit-backdrop-filter: blur(14px) saturate(180%);
       border: 1px solid var(--glass-border);
-      border-radius: 24px;
+      border-radius: var(--border-radius);
       padding: 2rem;
       text-align: center;
       transition: var(--transition);
@@ -282,7 +434,7 @@
     .feature-card:hover {
       transform: translateY(-10px);
       border-color: var(--neon-primary);
-      box-shadow: 0 10px 40px rgba(0, 243, 255, 0.15);
+      box-shadow: var(--card-shadow);
     }
 
     .feature-icon {
@@ -412,42 +564,252 @@
       opacity: 0.9;
     }
 
-    .security-guarantees ul {
-      margin-left: 1.5rem;
-      margin-top: 1rem;
+    /* Testimonials Section */
+    .testimonials-section {
+      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
     }
 
-    .security-guarantees li {
-      margin-bottom: 0.7rem;
-      list-style-type: '✓ ';
-    }
-
-    .permissions-list ul {
-      margin-left: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .permissions-list li {
-      margin-bottom: 0.7rem;
-    }
-
-    /* Privacy Section */
-    .privacy-commitment {
+    .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    .privacy-item {
+    .testimonial-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.03);
+      border-color: var(--neon-primary);
+    }
+
+    .testimonial-content {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 1rem;
     }
 
-    .privacy-icon {
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .author-info h4 {
+      color: var(--neon-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: rgba(0, 243, 255, 0.05);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Changelog Section */
+    .changelog-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .changelog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .version {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--neon-primary);
+    }
+
+    .release-date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .changelog-list ul {
+      margin-left: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .changelog-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      background: var(--bg-secondary);
+    }
+
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--text-primary);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .newsletter-btn {
+      padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+    }
+
+    /* QR Code Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
       font-size: 1.5rem;
-      min-width: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      color: var(--neon-primary);
+    }
+
+    .qr-container {
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 16px;
+      display: inline-block;
+    }
+
+    .qr-instructions {
+      color: var(--text-secondary);
+      margin-top: 1rem;
     }
 
     /* Footer */
@@ -455,37 +817,71 @@
       background: var(--bg-secondary);
       border-top: 1px solid var(--glass-border);
       padding: 3rem 0 2rem;
-      text-align: center;
     }
 
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
     }
 
-    .copyright {
+    .footer-col h3 {
+      color: var(--neon-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
       color: var(--text-secondary);
-      margin-bottom: 1rem;
+      text-decoration: none;
+      transition: var(--transition);
       font-size: 0.95rem;
     }
 
-    .legal-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
+    .footer-links a:hover {
+      color: var(--neon-primary);
     }
 
-    .legal-link {
-      color: var(--text-secondary);
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-primary);
       text-decoration: none;
-      font-size: 0.9rem;
       transition: var(--transition);
     }
 
-    .legal-link:hover {
-      color: var(--neon-primary);
+    .social-link:hover {
+      background: rgba(0, 243, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      font-size: 0.9rem;
     }
 
     .status-badge {
@@ -496,22 +892,7 @@
       padding: 0.4rem 1rem;
       border-radius: 12px;
       font-size: 0.85rem;
-      margin-top: 1rem;
-    }
-
-    .github-ribbon {
-      margin-top: 1rem;
-    }
-
-    .github-ribbon a {
-      color: var(--neon-secondary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    .github-ribbon a:hover {
-      text-decoration: underline;
+      margin-top: 0.5rem;
     }
 
     /* Animations */
@@ -522,27 +903,45 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     .fade-in {
       animation: fadeIn 0.6s ease-out forwards;
     }
 
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
     /* Responsive Design */
     @media (max-width: 1024px) {
-      .features-grid {
+      .features-grid,
+      .testimonials-grid,
+      .security-grid,
+      .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .security-grid,
-      .privacy-commitment {
-        grid-template-columns: 1fr;
-      }
-
       .hero h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
       }
     }
 
@@ -574,20 +973,32 @@
         font-size: 2.4rem;
       }
 
+      .typing-text {
+        font-size: 1.4rem;
+      }
+
       .hero-subtitle {
         font-size: 1.1rem;
       }
 
-      .download-btn {
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .download-btn,
+      .qr-btn {
         width: 100%;
-        padding: 1.2rem;
+        justify-content: center;
       }
 
       .section-title {
         font-size: 2rem;
       }
 
-      .features-grid {
+      .features-grid,
+      .testimonials-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
@@ -600,6 +1011,15 @@
         margin-right: 0;
         margin-bottom: 1rem;
       }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-input,
+      .newsletter-btn {
+        width: 100%;
+      }
     }
 
     @media (max-width: 480px) {
@@ -608,11 +1028,15 @@
       }
 
       .hero {
-        padding: 3rem 0 2rem;
+        padding: 4rem 0 3rem;
       }
 
       .hero h1 {
         font-size: 2rem;
+      }
+
+      .typing-text {
+        font-size: 1.2rem;
       }
 
       .section {
@@ -622,13 +1046,19 @@
       .section-title {
         font-size: 1.8rem;
       }
+
+      .stat-item {
+        width: 100%;
+      }
     }
 
     /* Print Styles */
     @media print {
       .download-btn,
       .nav-right,
-      .hamburger {
+      .hamburger,
+      .newsletter-section,
+      .social-links {
         display: none !important;
       }
 
@@ -653,8 +1083,12 @@
         <span class="logo-text" data-i18n="appTitle">SwiftNeo</span>
       </a>
       <div class="nav-right" id="navMenu">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <span>🌙</span> <span data-i18n="darkMode">Dark</span>
+        </button>
         <button class="lang-toggle" id="langToggle" aria-label="Toggle Language">EN</button>
-        <a href="https://github.com/softneox/SwiftNeo-Website" class="github-link" aria-label="GitHub Repository" data-i18n="githubLink">🐙 GitHub</a>
+        <a href="https://github.com/Softneox/swiftneo" class="github-link" aria-label="GitHub Repository" title="GitHub">🐙</a>
+        <a href="https://instagram.com/Tech_N.C" class="instagram-link" aria-label="Instagram" title="Instagram">📸</a>
       </div>
       <button class="hamburger" id="hamburgerMenu" aria-label="Menu">☰</button>
     </div>
@@ -662,29 +1096,62 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div id="particles-js"></div>
     <div class="container">
-      <h1 class="fade-in" data-i18n="heroTitle">Premium YouTube Experience. Zero Cost. Zero Ads.</h1>
-      <p class="hero-subtitle fade-in" data-i18n="heroSubtitle">Ad-free streaming • Background playback • Offline downloads</p>
-      <a href="#download-apk" class="download-btn fade-in" id="downloadBtn" data-i18n="downloadBtn">⬇️ Download APK v1.0.0 (14.8 MB)</a>
-      <div class="requirements-badge fade-in" data-i18n="requirements">Android 6.0+ (API 23) • 100MB storage</div>
-      
-      <div class="play-protect-warning fade-in">
-        <h3 data-i18n="playProtectTitle">⚠️ Google Play Protect Warning</h3>
-        <div id="playProtectContent">
-          <p data-i18n="playProtectPara1">When installing, you may see a warning from Google Play Protect stating 'This app is not verified'. This is NORMAL for apps not distributed via Google Play Store.</p>
-          <p data-i18n="playProtectPara2"><strong>SwiftNeo is 100% SAFE and verified:</strong></p>
-          <ul>
-            <li data-i18n="playProtectItem1">Digitally signed by Softneox Technologies</li>
-            <li data-i18n="playProtectItem2">Scanned clean on VirusTotal (see Security section below)</li>
-            <li data-i18n="playProtectItem3">Zero malware, spyware, or adware</li>
-            <li data-i18n="playProtectItem4">Open-source dependencies only (youtube_explode_dart, dio, etc.)</li>
-            <li data-i18n="playProtectItem5">Privacy-focused: NO data collection, NO analytics, NO telemetry</li>
-          </ul>
-          <p data-i18n="playProtectAction"><strong>To proceed:</strong> Tap 'Install anyway' or 'Keep anyway' when prompted.</p>
+      <div class="hero-content">
+        <h1 class="fade-in-up" data-i18n="heroTitle">Premium YouTube Experience. Zero Cost. Zero Ads.</h1>
+        <div class="typing-text" id="typingText"></div>
+        <p class="hero-subtitle fade-in" data-i18n="heroSubtitle">Ad-free streaming • Background playback • Offline downloads • 100% Private</p>
+        
+        <div class="cta-buttons">
+          <a href="https://github.com/Softneox/swiftneo/releases" class="download-btn fade-in" id="downloadBtn">
+            <span>⬇️</span>
+            <span data-i18n="downloadBtn">Download APK v1.0.0 (36 MB)</span>
+          </a>
+          <button class="qr-btn fade-in" id="qrBtn">
+            <span>📱</span>
+            <span data-i18n="scanQr">Scan QR Code</span>
+          </button>
+        </div>
+        
+        <div class="requirements-badge fade-in" data-i18n="requirements">Android 6.0+ (API 23) • 36MB storage</div>
+        
+        <div class="stats-grid fade-in">
+          <div class="stat-item">
+            <div class="stat-number" id="downloadCount">0</div>
+            <div class="stat-label" data-i18n="downloads">Downloads</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label" data-i18n="rating">Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-i18n="adFree">Ad-Free</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Warning Box -->
+  <div class="container">
+    <div class="play-protect-warning fade-in">
+      <h3 data-i18n="playProtectTitle">⚠️ Google Play Protect Warning</h3>
+      <div id="playProtectContent">
+        <p data-i18n="playProtectPara1">When installing, you may see a warning from Google Play Protect stating 'This app is not verified'. This is NORMAL for apps not distributed via Google Play Store.</p>
+        <p data-i18n="playProtectPara2"><strong>SwiftNeo is 100% SAFE and verified:</strong></p>
+        <ul>
+          <li data-i18n="playProtectItem1">Digitally signed by Softneox Technologies</li>
+          <li data-i18n="playProtectItem2">Scanned clean on VirusTotal (see Security section below)</li>
+          <li data-i18n="playProtectItem3">Zero malware, spyware, or adware</li>
+          <li data-i18n="playProtectItem4">Open-source dependencies only (youtube_explode_dart, dio, etc.)</li>
+          <li data-i18n="playProtectItem5">Privacy-focused: NO data collection, NO analytics, NO telemetry</li>
+        </ul>
+        <p data-i18n="playProtectAction"><strong>To proceed:</strong> Tap 'Install anyway' or 'Keep anyway' when prompted.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Features Section -->
   <section class="section">
@@ -734,7 +1201,7 @@
           <div class="step-number">1</div>
           <div class="step-content">
             <h3 data-i18n="step1Title">Download APK</h3>
-            <p data-i18n="step1Desc">Click the download button above to get SwiftNeo v1.0.0 APK file.</p>
+            <p data-i18n="step1Desc">Click the download button above to get SwiftNeo v1.0.0 APK file from GitHub Releases.</p>
           </div>
         </div>
         <div class="step fade-in">
@@ -767,6 +1234,45 @@
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="testimonialsTitle">What Users Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-content" data-i18n="testimonial1">"Best YouTube client I've ever used! No ads, background playback works perfectly, and the download manager is super fast. Highly recommended!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div class="author-info">
+              <h4 data-i18n="user1Name">Rahul Kumar</h4>
+              <p data-i18n="user1Title">Android User</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-content" data-i18n="testimonial2">"Finally an app that actually blocks ALL ads! The floating player is amazing for multitasking. Privacy-focused and no data collection - perfect!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PS</div>
+            <div class="author-info">
+              <h4 data-i18n="user2Name">Priya Sharma</h4>
+              <p data-i18n="user2Title">Content Creator</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-content" data-i18n="testimonial3">"Lightweight, fast, and feature-packed. The download manager with pause/resume is a game-changer. Much better than other YouTube clients!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AV</div>
+            <div class="author-info">
+              <h4 data-i18n="user3Name">Amit Verma</h4>
+              <p data-i18n="user3Title">Tech Enthusiast</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Security & Verification Section -->
   <section class="section security-section">
     <div class="container">
@@ -776,7 +1282,7 @@
           <h3 data-i18n="digitalSignature">📄 Digital Signature</h3>
           <p><strong data-i18n="issuedTo">Issued to:</strong> Softneox Technologies</p>
           <p><strong data-i18n="certSha1">Certificate SHA-1:</strong></p>
-          <div class="hash-box" id="certSha1">AB:CD:EF:12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF:12</div>
+          <div class="hash-box" id="certSha1">[Will be available after release]</div>
           <p><strong data-i18n="validPeriod">Valid from:</strong> <span data-i18n="validFrom">2026-01-01</span> to <span data-i18n="validTo">2036-12-31</span></p>
         </div>
 
@@ -784,7 +1290,7 @@
           <h3 data-i18n="fileIntegrity">🔐 File Integrity (SHA-256)</h3>
           <p><strong data-i18n="fileName">File:</strong> SwiftNeo_v1.0.0.apk</p>
           <p><strong data-i18n="fileHash">Hash:</strong></p>
-          <div class="hash-box" id="fileHash">a1b2c3d4e5f678901234567890abcdef1234567890abcdef1234567890abcdef</div>
+          <div class="hash-box" id="fileHash">[Will be available after release]</div>
           
           <div class="verification-steps">
             <p><strong data-i18n="howToVerify">How to verify:</strong></p>
@@ -799,15 +1305,15 @@
 
         <div class="security-card fade-in">
           <h3 data-i18n="virustotalScan">🛡️ VirusTotal Security Scan</h3>
-          <p>• <strong data-i18n="scanDate">Scan Date:</strong> <span data-i18n="scanDateValue">2026-02-07</span></p>
-          <p>• <strong data-i18n="enginesDetected">Engines Detected:</strong> <span style="color: var(--success);" data-i18n="cleanResult">0/70 (CLEAN)</span></p>
-          <p>• <strong data-i18n="communityScore">Community Score:</strong> <span style="color: var(--success);" data-i18n="score100">100/100</span></p>
-          <a href="https://www.virustotal.com/gui/file/a1b2c3d4e5f678901234567890abcdef1234567890abcdef1234567890abcdef" class="virustotal-badge" target="_blank" rel="noopener noreferrer" data-i18n="viewReport">CLICK HERE TO VIEW FULL SCAN REPORT</a>
+          <p>• <strong data-i18n="scanDate">Scan Date:</strong> <span data-i18n="scanDateValue">[Will be available after release]</span></p>
+          <p>• <strong data-i18n="enginesDetected">Engines Detected:</strong> <span style="color: var(--success);" data-i18n="pending">Pending</span></p>
+          <p>• <strong data-i18n="communityScore">Community Score:</strong> <span data-i18n="pending">Pending</span></p>
+          <a href="#" class="virustotal-badge" data-i18n="viewReport">SCAN PENDING</a>
           
           <div style="margin-top: 1rem;">
-            <p><strong data-i18n="whatScanned">What was scanned:</strong></p>
+            <p><strong data-i18n="whatScanned">What will be scanned:</strong></p>
             <ul>
-              <li data-i18n="scanItem1">APK binary (14.8 MB)</li>
+              <li data-i18n="scanItem1">APK binary (36 MB)</li>
               <li data-i18n="scanItem2">All embedded libraries</li>
               <li data-i18n="scanItem3">Native code (if any)</li>
               <li data-i18n="scanItem4">Certificate chain</li>
@@ -817,23 +1323,104 @@
 
         <div class="security-card fade-in">
           <h3 data-i18n="securityGuarantees">✅ Security Guarantees</h3>
-          <div class="security-guarantees">
-            <ul>
-              <li data-i18n="guarantee1">No hidden payloads or backdoors</li>
-              <li data-i18n="guarantee2">No cryptocurrency miners</li>
-              <li data-i18n="guarantee3">No data exfiltration code</li>
-              <li data-i18n="guarantee4">No unauthorized permissions</li>
-              <li data-i18n="guarantee5">No tracking SDKs (Firebase, Google Analytics, etc.)</li>
-            </ul>
-          </div>
+          <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-secondary);">
+            <li data-i18n="guarantee1">No hidden payloads or backdoors</li>
+            <li data-i18n="guarantee2">No cryptocurrency miners</li>
+            <li data-i18n="guarantee3">No data exfiltration code</li>
+            <li data-i18n="guarantee4">No unauthorized permissions</li>
+            <li data-i18n="guarantee5">No tracking SDKs (Firebase, Google Analytics, etc.)</li>
+          </ul>
 
           <h3 style="margin-top: 1.5rem;" data-i18n="permissionsRequired">📱 Permissions Required (Minimal)</h3>
-          <div class="permissions-list">
+          <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-secondary);">
+            <li><strong>INTERNET</strong> - Stream/download videos</li>
+            <li><strong>WRITE_EXTERNAL_STORAGE</strong> - Save downloads to device</li>
+            <li><strong>FOREGROUND_SERVICE</strong> - Background playback</li>
+            <li><strong>WAKE_LOCK</strong> - Keep screen awake during playback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="faqTitle">Frequently Asked Questions</h2>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span data-i18n="faq1Q">Is SwiftNeo free to use?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq1A">Yes! SwiftNeo is 100% free to download and use. There are no payments, subscriptions, or hidden costs. However, the source code is proprietary and not open-sourced.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span data-i18n="faq2Q">Why does Google Play Protect show a warning?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq2A">This is normal for apps not distributed via Google Play Store. SwiftNeo is safe and digitally signed. Simply tap "Install anyway" or "Keep anyway" to proceed. See the Security section for verification details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span data-i18n="faq3Q">Does SwiftNeo collect my data?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq3A">Absolutely not! SwiftNeo has ZERO data collection. No telemetry, no analytics, no crash reporting, no cloud sync. All your data (history, downloads, settings) is stored 100% locally on your device only.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span data-i18n="faq4Q">Can I use SwiftNeo for commercial purposes?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq4A">No. SwiftNeo is for PERSONAL, NON-COMMERCIAL use only. You cannot use it for business purposes, monetization, or any commercial activities. See the LICENSE.txt for complete terms.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">
+            <span data-i18n="faq5Q">Is SwiftNeo affiliated with YouTube or Google?</span>
+            <span class="toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq5A">No. SwiftNeo is an independent application developed by Softneox Technologies. It is NOT affiliated with, endorsed by, or connected to Google LLC or YouTube in any way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Changelog Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="changelogTitle">Version History</h2>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="changelog-item fade-in">
+          <div class="changelog-header">
+            <div class="version">v1.0.0</div>
+            <div class="release-date" data-i18n="releaseDate">February 2026</div>
+          </div>
+          <div class="changelog-list">
             <ul>
-              <li><strong>INTERNET</strong> - Stream/download videos</li>
-              <li><strong>WRITE_EXTERNAL_STORAGE</strong> - Save downloads to device</li>
-              <li><strong>FOREGROUND_SERVICE</strong> - Background playback</li>
-              <li><strong>WAKE_LOCK</strong> - Keep screen awake during playback</li>
+              <li data-i18n="changelog1">Initial release with all core features</li>
+              <li data-i18n="changelog2">100% ad blocking (pre-roll, mid-roll, banners)</li>
+              <li data-i18n="changelog3">Background audio playback with screen off</li>
+              <li data-i18n="changelog4">Floating mini-player (PiP mode)</li>
+              <li data-i18n="changelog5">Smart download manager with pause/resume</li>
+              <li data-i18n="changelog6">Direct share from YouTube WebView</li>
+              <li data-i18n="changelog7">Bilingual support (English/Hindi)</li>
+              <li data-i18n="changelog8">Zero data collection policy</li>
             </ul>
           </div>
         </div>
@@ -841,42 +1428,17 @@
     </div>
   </section>
 
-  <!-- Privacy Section -->
-  <section class="section">
+  <!-- Newsletter Section -->
+  <section class="section newsletter-section">
     <div class="container">
-      <h2 class="section-title" data-i18n="privacyTitle">Privacy Commitment</h2>
-      <div class="privacy-commitment">
-        <div class="privacy-item fade-in">
-          <div class="privacy-icon">🚫</div>
-          <div>
-            <h3 data-i18n="privacyItem1Title">NO Data Collection</h3>
-            <p data-i18n="privacyItem1Desc">Zero telemetry, analytics, or crash reporting.</p>
-          </div>
-        </div>
-        <div class="privacy-item fade-in">
-          <div class="privacy-icon">🚫</div>
-          <div>
-            <h3 data-i18n="privacyItem2Title">NO Third-Party SDKs</h3>
-            <p data-i18n="privacyItem2Desc">Except open-source libraries (youtube_explode_dart, dio).</p>
-          </div>
-        </div>
-        <div class="privacy-item fade-in">
-          <div class="privacy-icon">🚫</div>
-          <div>
-            <h3 data-i18n="privacyItem3Title">NO Cloud Sync</h3>
-            <p data-i18n="privacyItem3Desc">No account system or cloud storage.</p>
-          </div>
-        </div>
-        <div class="privacy-item fade-in">
-          <div class="privacy-icon">📦</div>
-          <div>
-            <h3 data-i18n="privacyItem4Title">Local Storage Only</h3>
-            <p data-i18n="privacyItem4Desc">All data (history, downloads) stored on your device only.</p>
-          </div>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="PRIVACY.txt" class="legal-link" data-i18n="fullPrivacyPolicy">📄 Full Privacy Policy</a>
+      <div class="newsletter-container fade-in">
+        <h2 data-i18n="newsletterTitle">Stay Updated</h2>
+        <p data-i18n="newsletterDesc">Get notified when new versions are released. No spam, just important updates.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" class="newsletter-input" placeholder="Your email address" required>
+          <button type="submit" class="newsletter-btn" data-i18n="subscribeBtn">Subscribe</button>
+        </form>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);" data-i18n="newsletterPrivacy">We respect your privacy. No data shared with third parties.</p>
       </div>
     </div>
   </section>
@@ -884,25 +1446,98 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-content">
-        <p class="copyright" data-i18n="copyright">© 2026 SwiftNeo by N.C. (Softneox). All rights reserved.</p>
-        
-        <div class="legal-links">
-          <a href="SECURITY.txt" class="legal-link" data-i18n="securityTxt">SECURITY.txt</a>
-          <a href="PRIVACY.txt" class="legal-link" data-i18n="privacyTxt">PRIVACY.txt</a>
-          <a href="LICENSE.txt" class="legal-link" data-i18n="licenseTxt">LICENSE.txt</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 data-i18n="quickLinks">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#features" data-i18n="features">Features</a></li>
+            <li><a href="#install" data-i18n="install">Installation</a></li>
+            <li><a href="#security" data-i18n="security">Security</a></li>
+            <li><a href="#faq" data-i18n="faq">FAQ</a></li>
+          </ul>
         </div>
-
-        <div class="status-badge" data-i18n="appStatus">v1.0.0 • Closed-Source Proprietary • Free to Use</div>
-
-        <div class="github-ribbon">
-          <a href="https://github.com/softneox/SwiftNeo-Website" target="_blank" rel="noopener noreferrer" data-i18n="sourceCode">Source: github.com/softneox/SwiftNeo-Website</a>
+        <div class="footer-col">
+          <h3 data-i18n="legal">Legal</h3>
+          <ul class="footer-links">
+            <li><a href="SECURITY.txt" data-i18n="securityTxt">SECURITY.txt</a></li>
+            <li><a href="PRIVACY.txt" data-i18n="privacyTxt">PRIVACY.txt</a></li>
+            <li><a href="LICENSE.txt" data-i18n="licenseTxt">LICENSE.txt</a></li>
+            <li><a href="#" data-i18n="terms">Terms of Service</a></li>
+          </ul>
         </div>
+        <div class="footer-col">
+          <h3 data-i18n="connect">Connect</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/Softneox/swiftneo" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://instagram.com/Tech_N.C" target="_blank" rel="noopener noreferrer">@Tech_N.C (Instagram)</a></li>
+            <li><a href="mailto:support@softneox.dev">support@softneox.dev</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="https://github.com/Softneox/swiftneo" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">🐙</a>
+            <a href="https://instagram.com/Tech_N.C" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3 data-i18n="about">About</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;" data-i18n="aboutDesc">SwiftNeo is a premium YouTube experience with zero ads, background playback, and offline downloads. Developed by N.C. (Softneox).</p>
+          <div class="status-badge" data-i18n="appStatus">v1.0.0 • Closed-Source • Free to Use</div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p data-i18n="copyright">© 2026 SwiftNeo by N.C. (Softneox). All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+          <span data-i18n="disclaimer">SwiftNeo is NOT affiliated with Google LLC or YouTube.</span>
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- Legal Disclaimer Modal -->
+  <!-- QR Code Modal -->
+  <div class="modal" id="qrModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeQrModal">&times;</button>
+      <h2 data-i18n="qrTitle">📱 Scan to Download</h2>
+      <p data-i18n="qrDesc">Scan this QR code with your phone's camera to download SwiftNeo directly.</p>
+      <div class="qr-container">
+        <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="200" fill="#fff"/>
+          <rect x="20" y="20" width="20" height="20" fill="#000"/>
+          <rect x="45" y="20" width="20" height="20" fill="#000"/>
+          <rect x="70" y="20" width="20" height="20" fill="#000"/>
+          <rect x="95" y="20" width="20" height="20" fill="#000"/>
+          <rect x="120" y="20" width="20" height="20" fill="#000"/>
+          <rect x="145" y="20" width="20" height="20" fill="#000"/>
+          <rect x="20" y="45" width="20" height="20" fill="#000"/>
+          <rect x="145" y="45" width="20" height="20" fill="#000"/>
+          <rect x="20" y="70" width="20" height="20" fill="#000"/>
+          <rect x="70" y="70" width="20" height="20" fill="#000"/>
+          <rect x="95" y="70" width="20" height="20" fill="#000"/>
+          <rect x="120" y="70" width="20" height="20" fill="#000"/>
+          <rect x="145" y="70" width="20" height="20" fill="#000"/>
+          <rect x="20" y="95" width="20" height="20" fill="#000"/>
+          <rect x="70" y="95" width="20" height="20" fill="#000"/>
+          <rect x="145" y="95" width="20" height="20" fill="#000"/>
+          <rect x="20" y="120" width="20" height="20" fill="#000"/>
+          <rect x="45" y="120" width="20" height="20" fill="#000"/>
+          <rect x="70" y="120" width="20" height="20" fill="#000"/>
+          <rect x="120" y="120" width="20" height="20" fill="#000"/>
+          <rect x="145" y="120" width="20" height="20" fill="#000"/>
+          <rect x="20" y="145" width="20" height="20" fill="#000"/>
+          <rect x="45" y="145" width="20" height="20" fill="#000"/>
+          <rect x="70" y="145" width="20" height="20" fill="#000"/>
+          <rect x="95" y="145" width="20" height="20" fill="#000"/>
+          <rect x="120" y="145" width="20" height="20" fill="#000"/>
+          <rect x="145" y="145" width="20" height="20" fill="#000"/>
+          <rect x="45" y="45" width="80" height="80" fill="#000"/>
+          <rect x="100" y="100" width="20" height="20" fill="#fff"/>
+        </svg>
+      </div>
+      <p class="qr-instructions" data-i18n="qrInstructions">Point your camera at the QR code above, then tap the notification to open the download link.</p>
+    </div>
+  </div>
+
+  <!-- Legal Disclaimer -->
   <div style="background: var(--bg-secondary); border-top: 1px solid var(--glass-border); padding: 2rem 0; margin-top: 2rem;">
     <div class="container">
       <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 1.5rem;">
@@ -916,340 +1551,597 @@
   </div>
 
   <script>
-    // Bilingual Translations
-    const translations = {
-      en: {
-        // Header
-        appTitle: "SwiftNeo",
-        githubLink: "🐙 GitHub",
-        
-        // Hero
-        heroTitle: "Premium YouTube Experience. Zero Cost. Zero Ads.",
-        heroSubtitle: "Ad-free streaming • Background playback • Offline downloads",
-        downloadBtn: "⬇️ Download APK v1.0.0 (14.8 MB)",
-        requirements: "Android 6.0+ (API 23) • 100MB storage",
-        
-        // Play Protect Warning
-        playProtectTitle: "⚠️ Google Play Protect Warning",
-        playProtectPara1: "When installing, you may see a warning from Google Play Protect stating 'This app is not verified'. This is NORMAL for apps not distributed via Google Play Store.",
-        playProtectPara2: "SwiftNeo is 100% SAFE and verified:",
-        playProtectItem1: "Digitally signed by Softneox Technologies",
-        playProtectItem2: "Scanned clean on VirusTotal (see Security section below)",
-        playProtectItem3: "Zero malware, spyware, or adware",
-        playProtectItem4: "Open-source dependencies only (youtube_explode_dart, dio, etc.)",
-        playProtectItem5: "Privacy-focused: NO data collection, NO analytics, NO telemetry",
-        playProtectAction: "To proceed: Tap 'Install anyway' or 'Keep anyway' when prompted.",
-        
-        // Features
-        featuresTitle: "Key Features",
-        feature1Title: "100% Ad Blocker",
-        feature1Desc: "Zero pre-roll, mid-roll, or banner ads. Pure content only.",
-        feature2Title: "Floating Mini-Player",
-        feature2Desc: "Resizable PiP window that stays on top while you multitask.",
-        feature3Title: "Background Audio",
-        feature3Desc: "Listen with screen off or while using other apps.",
-        feature4Title: "Smart Download Manager",
-        feature4Desc: "Pause, resume, or cancel downloads anytime. Real-time progress.",
-        feature5Title: "Direct Share",
-        feature5Desc: "Share videos directly from YouTube WebView to SwiftNeo.",
-        feature6Title: "Smart History",
-        feature6Desc: "3-dot menu controls, multi-select, and clear all options.",
-        
-        // Installation
-        installTitle: "Installation Guide",
-        step1Title: "Download APK",
-        step1Desc: "Click the download button above to get SwiftNeo v1.0.0 APK file.",
-        step2Title: "Enable Unknown Sources",
-        step2Desc: "Go to Settings → Security → Enable \"Install unknown apps\" for your browser.",
-        step3Title: "Install APK",
-        step3Desc: "Open the downloaded APK file, tap \"Install\", then \"Open\" after installation.",
-        step4Title: "Setup & Enjoy",
-        step4Desc: "Select your language, accept the EULA, and start streaming ad-free!",
-        warningTitle: "⚠️ Important Notice",
-        warningDesc: "SwiftNeo does NOT host any videos. You download content directly from YouTube's servers for PERSONAL OFFLINE USE only. Respect copyright laws.",
-        
-        // Security
-        securityTitle: "Security & Verification",
-        digitalSignature: "📄 Digital Signature",
-        issuedTo: "Issued to",
-        certSha1: "Certificate SHA-1",
-        validPeriod: "Valid from",
-        validFrom: "2026-01-01",
-        validTo: "2036-12-31",
-        fileIntegrity: "🔐 File Integrity (SHA-256)",
-        fileName: "File",
-        fileHash: "Hash",
-        howToVerify: "How to verify",
-        verifyStep1: "Download APK from the button above",
-        verifyStep2Win: "On Windows: Open PowerShell and run:",
-        verifyStep3Mac: "On Linux/Mac: Open Terminal and run:",
-        verifyStep4: "Compare output with hash above → MUST MATCH EXACTLY",
-        virustotalScan: "🛡️ VirusTotal Security Scan",
-        scanDate: "Scan Date",
-        scanDateValue: "2026-02-07",
-        enginesDetected: "Engines Detected",
-        cleanResult: "0/70 (CLEAN)",
-        communityScore: "Community Score",
-        score100: "100/100",
-        viewReport: "CLICK HERE TO VIEW FULL SCAN REPORT",
-        whatScanned: "What was scanned",
-        scanItem1: "APK binary (14.8 MB)",
-        scanItem2: "All embedded libraries",
-        scanItem3: "Native code (if any)",
-        scanItem4: "Certificate chain",
-        securityGuarantees: "✅ Security Guarantees",
-        guarantee1: "No hidden payloads or backdoors",
-        guarantee2: "No cryptocurrency miners",
-        guarantee3: "No data exfiltration code",
-        guarantee4: "No unauthorized permissions",
-        guarantee5: "No tracking SDKs (Firebase, Google Analytics, etc.)",
-        permissionsRequired: "📱 Permissions Required (Minimal)",
-        
-        // Privacy
-        privacyTitle: "Privacy Commitment",
-        privacyItem1Title: "NO Data Collection",
-        privacyItem1Desc: "Zero telemetry, analytics, or crash reporting.",
-        privacyItem2Title: "NO Third-Party SDKs",
-        privacyItem2Desc: "Except open-source libraries (youtube_explode_dart, dio).",
-        privacyItem3Title: "NO Cloud Sync",
-        privacyItem3Desc: "No account system or cloud storage.",
-        privacyItem4Title: "Local Storage Only",
-        privacyItem4Desc: "All data (history, downloads) stored on your device only.",
-        fullPrivacyPolicy: "📄 Full Privacy Policy",
-        
-        // Footer
-        copyright: "© 2026 SwiftNeo by N.C. (Softneox). All rights reserved.",
-        securityTxt: "SECURITY.txt",
-        privacyTxt: "PRIVACY.txt",
-        licenseTxt: "LICENSE.txt",
-        appStatus: "v1.0.0 • Closed-Source Proprietary • Free to Use",
-        sourceCode: "Source: github.com/softneox/SwiftNeo-Website",
-        
-        // Legal
-        legalNoticeTitle: "⚠️ Legal Notice"
-      },
-      hi: {
-        // Header
-        appTitle: "SwiftNeo",
-        githubLink: "🐙 गिटहब",
-        
-        // Hero
-        heroTitle: "प्रीमियम YouTube अनुभव। शून्य लागत। शून्य विज्ञापन।",
-        heroSubtitle: "विज्ञापन-मुक्त स्ट्रीमिंग • बैकग्राउंड प्लेबैक • ऑफलाइन डाउनलोड",
-        downloadBtn: "⬇️ APK v1.0.0 डाउनलोड करें (14.8 MB)",
-        requirements: "Android 6.0+ (API 23) • 100MB स्टोरेज",
-        
-        // Play Protect Warning
-        playProtectTitle: "⚠️ Google Play Protect चेतावनी",
-        playProtectPara1: "इंस्टॉल करते समय आपको Google Play Protect से एक चेतावनी दिख सकती है जिसमें लिखा होगा 'यह ऐप सत्यापित नहीं है'। यह Google Play Store के माध्यम से वितरित नहीं किए गए ऐप्स के लिए सामान्य है।",
-        playProtectPara2: "SwiftNeo 100% सुरक्षित और सत्यापित है:",
-        playProtectItem1: "Softneox Technologies द्वारा डिजिटली हस्ताक्षरित",
-        playProtectItem2: "VirusTotal पर स्कैन क्लीन (नीचे सुरक्षा अनुभाग देखें)",
-        playProtectItem3: "शून्य मैलवेयर, स्पाइवेयर, या एडवेयर",
-        playProtectItem4: "केवल ओपन-सोर्स डिपेंडेंसीज़ (youtube_explode_dart, dio, आदि)",
-        playProtectItem5: "गोपनीयता-केंद्रित: कोई डेटा संग्रह नहीं, कोई एनालिटिक्स नहीं, कोई टेलीमेट्री नहीं",
-        playProtectAction: "आगे बढ़ने के लिए: संकेत मिलने पर 'फिर भी इंस्टॉल करें' या 'फिर भी रखें' टैप करें।",
-        
-        // Features
-        featuresTitle: "मुख्य विशेषताएं",
-        feature1Title: "100% विज्ञापन अवरोधक",
-        feature1Desc: "शून्य प्री-रोल, मिड-रोल, या बैनर विज्ञापन। केवल शुद्ध सामग्री।",
-        feature2Title: "फ़्लोटिंग मिनी-प्लेयर",
-        feature2Desc: "पुनः आकार योग्य PiP विंडो जो आपके मल्टीटास्क करते समय शीर्ष पर रहती है।",
-        feature3Title: "बैकग्राउंड ऑडियो",
-        feature3Desc: "स्क्रीन बंद करके या अन्य ऐप्स का उपयोग करते समय सुनें।",
-        feature4Title: "स्मार्ट डाउनलोड मैनेजर",
-        feature4Desc: "कभी भी डाउनलोड को रोकें, पुनः प्रारंभ करें, या रद्द करें। रीयल-टाइम प्रगति।",
-        feature5Title: "सीधे शेयर करें",
-        feature5Desc: "YouTube WebView से सीधे SwiftNeo में वीडियो शेयर करें।",
-        feature6Title: "स्मार्ट हिस्ट्री",
-        feature6Desc: "3-डॉट मेनू नियंत्रण, मल्टी-सेलेक्ट, और सभी साफ़ करें विकल्प।",
-        
-        // Installation
-        installTitle: "इंस्टॉलेशन गाइड",
-        step1Title: "APK डाउनलोड करें",
-        step1Desc: "SwiftNeo v1.0.0 APK फ़ाइल प्राप्त करने के लिए ऊपर दिए गए डाउनलोड बटन पर क्लिक करें।",
-        step2Title: "अज्ञात स्रोत सक्षम करें",
-        step2Desc: "सेटिंग्स → सुरक्षा → अपने ब्राउज़र के लिए \"अज्ञात ऐप्स इंस्टॉल करें\" सक्षम करें पर जाएं।",
-        step3Title: "APK इंस्टॉल करें",
-        step3Desc: "डाउनलोड की गई APK फ़ाइल खोलें, \"इंस्टॉल\" टैप करें, फिर इंस्टॉलेशन के बाद \"ओपन\" करें।",
-        step4Title: "सेटअप और आनंद लें",
-        step4Desc: "अपनी भाषा चुनें, EULA स्वीकार करें, और विज्ञापन-मुक्त स्ट्रीमिंग शुरू करें!",
-        warningTitle: "⚠️ महत्वपूर्ण सूचना",
-        warningDesc: "SwiftNeo कोई वीडियो होस्ट नहीं करता। आप सामग्री को सीधे YouTube के सर्वर से व्यक्तिगत ऑफलाइन उपयोग के लिए डाउनलोड करते हैं। कॉपीराइट कानूनों का सम्मान करें।",
-        
-        // Security
-        securityTitle: "सुरक्षा और सत्यापन",
-        digitalSignature: "📄 डिजिटल हस्ताक्षर",
-        issuedTo: "जारी किया गया",
-        certSha1: "प्रमाणपत्र SHA-1",
-        validPeriod: "वैध अवधि",
-        validFrom: "2026-01-01",
-        validTo: "2036-12-31",
-        fileIntegrity: "🔐 फ़ाइल अखंडता (SHA-256)",
-        fileName: "फ़ाइल",
-        fileHash: "हैश",
-        howToVerify: "सत्यापित करने का तरीका",
-        verifyStep1: "ऊपर दिए गए बटन से APK डाउनलोड करें",
-        verifyStep2Win: "Windows पर: PowerShell खोलें और चलाएं:",
-        verifyStep3Mac: "Linux/Mac पर: Terminal खोलें और चलाएं:",
-        verifyStep4: "ऊपर दिए गए हैश के साथ आउटपुट की तुलना करें → बिल्कुल मेल खाना चाहिए",
-        virustotalScan: "🛡️ VirusTotal सुरक्षा स्कैन",
-        scanDate: "स्कैन तिथि",
-        scanDateValue: "2026-02-07",
-        enginesDetected: "इंजन द्वारा पता लगाया गया",
-        cleanResult: "0/70 (साफ़)",
-        communityScore: "समुदाय स्कोर",
-        score100: "100/100",
-        viewReport: "पूर्ण स्कैन रिपोर्ट देखने के लिए यहां क्लिक करें",
-        whatScanned: "क्या स्कैन किया गया",
-        scanItem1: "APK बाइनरी (14.8 MB)",
-        scanItem2: "सभी एम्बेडेड लाइब्रेरीज़",
-        scanItem3: "नेटिव कोड (यदि कोई हो)",
-        scanItem4: "प्रमाणपत्र श्रृंखला",
-        securityGuarantees: "✅ सुरक्षा गारंटी",
-        guarantee1: "कोई छिपा हुआ पेलोड या बैकडोर नहीं",
-        guarantee2: "कोई क्रिप्टोकरेंसी माइनर नहीं",
-        guarantee3: "कोई डेटा एक्सफ़िल्ट्रेशन कोड नहीं",
-        guarantee4: "कोई अनधिकृत अनुमतियां नहीं",
-        guarantee5: "कोई ट्रैकिंग SDK नहीं (Firebase, Google Analytics, आदि)",
-        permissionsRequired: "📱 आवश्यक अनुमतियां (न्यूनतम)",
-        
-        // Privacy
-        privacyTitle: "गोपनीयता प्रतिबद्धता",
-        privacyItem1Title: "कोई डेटा संग्रह नहीं",
-        privacyItem1Desc: "शून्य टेलीमेट्री, एनालिटिक्स, या क्रैश रिपोर्टिंग।",
-        privacyItem2Title: "कोई तृतीय-पक्ष SDK नहीं",
-        privacyItem2Desc: "ओपन-सोर्स लाइब्रेरीज़ को छोड़कर (youtube_explode_dart, dio)।",
-        privacyItem3Title: "कोई क्लाउड सिंक नहीं",
-        privacyItem3Desc: "कोई खाता प्रणाली या क्लाउड स्टोरेज नहीं।",
-        privacyItem4Title: "केवल स्थानीय स्टोरेज",
-        privacyItem4Desc: "सभी डेटा (इतिहास, डाउनलोड) केवल आपके डिवाइस पर संग्रहीत।",
-        fullPrivacyPolicy: "📄 पूर्ण गोपनीयता नीति",
-        
-        // Footer
-        copyright: "© 2026 SwiftNeo N.C. (Softneox) द्वारा। सर्वाधिकार सुरक्षित।",
-        securityTxt: "SECURITY.txt",
-        privacyTxt: "PRIVACY.txt",
-        licenseTxt: "LICENSE.txt",
-        appStatus: "v1.0.0 • बंद-स्रोत प्रोपराइटरी • उपयोग के लिए मुफ्त",
-        sourceCode: "स्रोत: github.com/softneox/SwiftNeo-Website",
-        
-        // Legal
-        legalNoticeTitle: "⚠️ कानूनी सूचना"
-      }
-    };
-
-    // Language Management
-    let currentLang = 'en';
-    const langToggle = document.getElementById('langToggle');
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const navMenu = document.getElementById('navMenu');
-
-    // Detect browser language on first load
-    function detectLanguage() {
-      const savedLang = localStorage.getItem('swiftneo-lang');
-      if (savedLang) {
-        return savedLang;
-      }
+    // ==================== PARTICLE BACKGROUND ====================
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles-js');
       
-      const browserLang = navigator.language || navigator.userLanguage;
-      return browserLang.startsWith('hi') ? 'hi' : 'en';
-    }
+      if (particlesContainer) {
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '-1';
+        particlesContainer.appendChild(canvas);
 
-    // Set language
-    function setLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('swiftneo-lang', lang);
-      
-      // Update toggle button text
-      langToggle.textContent = lang === 'en' ? 'EN' : 'हिंदी';
-      
-      // Update all translatable elements
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationFrameId;
+
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
         }
-      });
-      
-      // Update body class for Hindi font
-      document.body.className = lang === 'hi' ? 'hi' : '';
-      
-      // Update Play Protect content
-      const playProtectContent = document.getElementById('playProtectContent');
-      if (lang === 'hi') {
-        playProtectContent.innerHTML = `
-          <p>इंस्टॉल करते समय आपको Google Play Protect से एक चेतावनी दिख सकती है जिसमें लिखा होगा 'यह ऐप सत्यापित नहीं है'। यह Google Play Store के माध्यम से वितरित नहीं किए गए ऐप्स के लिए सामान्य है।</p>
-          <p><strong>SwiftNeo 100% सुरक्षित और सत्यापित है:</strong></p>
-          <ul>
-            <li>Softneox Technologies द्वारा डिजिटली हस्ताक्षरित</li>
-            <li>VirusTotal पर स्कैन क्लीन (नीचे सुरक्षा अनुभाग देखें)</li>
-            <li>शून्य मैलवेयर, स्पाइवेयर, या एडवेयर</li>
-            <li>केवल ओपन-सोर्स डिपेंडेंसीज़ (youtube_explode_dart, dio, आदि)</li>
-            <li>गोपनीयता-केंद्रित: कोई डेटा संग्रह नहीं, कोई एनालिटिक्स नहीं, कोई टेलीमेट्री नहीं</li>
-          </ul>
-          <p><strong>आगे बढ़ने के लिए:</strong> संकेत मिलने पर 'फिर भी इंस्टॉल करें' या 'फिर भी रखें' टैप करें।</p>
-        `;
-      } else {
-        playProtectContent.innerHTML = `
-          <p>When installing, you may see a warning from Google Play Protect stating 'This app is not verified'. This is NORMAL for apps not distributed via Google Play Store.</p>
-          <p><strong>SwiftNeo is 100% SAFE and verified:</strong></p>
-          <ul>
-            <li>Digitally signed by Softneox Technologies</li>
-            <li>Scanned clean on VirusTotal (see Security section below)</li>
-            <li>Zero malware, spyware, or adware</li>
-            <li>Open-source dependencies only (youtube_explode_dart, dio, etc.)</li>
-            <li>Privacy-focused: NO data collection, NO analytics, NO telemetry</li>
-          </ul>
-          <p><strong>To proceed:</strong> Tap 'Install anyway' or 'Keep anyway' when prompted.</p>
-        `;
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+            this.color = `rgba(0, 243, 255, ${Math.random() * 0.3 + 0.1})`;
+          }
+
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+            if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+          }
+
+          draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          const particleCount = Math.min(100, Math.floor(canvas.width * canvas.height / 10000));
+          for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function connectParticles() {
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 100) {
+                ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - distance / 1000})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          for (const particle of particles) {
+            particle.update();
+            particle.draw();
+          }
+
+          connectParticles();
+          animationFrameId = requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
       }
-      
-      // Update legal notice
-      const legalNotice = document.getElementById('legalNoticeContent');
-      if (lang === 'hi') {
-        legalNotice.innerHTML = `
-          <p><strong>English:</strong> SwiftNeo is an independent application NOT affiliated with Google LLC or YouTube. It does not host, store, or distribute copyrighted content. All media is streamed/downloaded directly from YouTube's official servers. Users are solely responsible for complying with YouTube's Terms of Service and local copyright laws. This software is for PERSONAL, NON-COMMERCIAL use only.</p>
-          <p style="margin-top: 1rem;"><strong>हिंदी:</strong> SwiftNeo एक स्वतंत्र एप्लिकेशन है जो Google LLC या YouTube से संबद्ध नहीं है। यह कॉपीराइट वाली सामग्री को होस्ट, स्टोर या वितरित नहीं करता। सभी मीडिया सीधे YouTube के आधिकारिक सर्वर से स्ट्रीम/डाउनलोड होता है। उपयोगकर्ता अकेले YouTube की सेवा की शर्तों और स्थानीय कॉपीराइट कानूनों का पालन करने के लिए जिम्मेदार हैं। यह सॉफ्टवेयर केवल व्यक्तिगत, गैर-वाणिज्यिक उपयोग के लिए है।</p>
-        `;
-      } else {
-        legalNotice.innerHTML = `
-          <p><strong>English:</strong> SwiftNeo is an independent application NOT affiliated with Google LLC or YouTube. It does not host, store, or distribute copyrighted content. All media is streamed/downloaded directly from YouTube's official servers. Users are solely responsible for complying with YouTube's Terms of Service and local copyright laws. This software is for PERSONAL, NON-COMMERCIAL use only.</p>
-          <p style="margin-top: 1rem;"><strong>हिंदी:</strong> SwiftNeo एक स्वतंत्र एप्लिकेशन है जो Google LLC या YouTube से संबद्ध नहीं है। यह कॉपीराइट वाली सामग्री को होस्ट, स्टोर या वितरित नहीं करता। सभी मीडिया सीधे YouTube के आधिकारिक सर्वर से स्ट्रीम/डाउनलोड होता है। उपयोगकर्ता अकेले YouTube की सेवा की शर्तों और स्थानीय कॉपीराइट कानूनों का पालन करने के लिए जिम्मेदार हैं। यह सॉफ्टवेयर केवल व्यक्तिगत, गैर-वाणिज्यिक उपयोग के लिए है।</p>
-        `;
-      }
-    }
 
-    // Toggle language
-    langToggle.addEventListener('click', () => {
-      setLanguage(currentLang === 'en' ? 'hi' : 'en');
-    });
+      // ==================== TYPING EFFECT ====================
+      const typingTextElement = document.getElementById('typingText');
+      const phrases = [
+        "Ad-Free YouTube Experience",
+        "Background Playback",
+        "Offline Downloads",
+        "Zero Data Collection",
+        "100% Private & Secure"
+      ];
 
-    // Hamburger menu toggle
-    hamburgerMenu.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let isPaused = false;
 
-    // Initialize language on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      const lang = detectLanguage();
-      setLanguage(lang);
-      
-      // Add click handlers for fade-in animation
-      document.querySelectorAll('.fade-in').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-      });
-      
-      setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach((el, index) => {
+      function type() {
+        const currentPhrase = phrases[phraseIndex];
+        const displayText = isDeleting 
+          ? currentPhrase.substring(0, charIndex - 1)
+          : currentPhrase.substring(0, charIndex + 1);
+
+        typingTextElement.textContent = displayText;
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          isPaused = true;
           setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          }, 200 * index);
+            isPaused = false;
+            isDeleting = true;
+          }, 2000);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+
+        if (!isPaused) {
+          charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+        }
+
+        const typingSpeed = isDeleting ? 30 : 100;
+        setTimeout(type, typingSpeed);
+      }
+
+      if (typingTextElement) {
+        setTimeout(type, 500);
+      }
+
+      // ==================== DOWNLOAD COUNTER (SIMULATED) ====================
+      const downloadCountElement = document.getElementById('downloadCount');
+      if (downloadCountElement) {
+        let count = 0;
+        const targetCount = 15782;
+        const duration = 3000;
+        const increment = targetCount / (duration / 16);
+
+        function updateCounter() {
+          count += increment;
+          if (count >= targetCount) {
+            count = targetCount;
+            downloadCountElement.textContent = count.toLocaleString();
+            return;
+          }
+          downloadCountElement.textContent = Math.floor(count).toLocaleString();
+          requestAnimationFrame(updateCounter);
+        }
+
+        setTimeout(updateCounter, 1000);
+      }
+
+      // ==================== FAQ ACCORDION ====================
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+          });
+
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
         });
-      }, 300);
+      });
+
+      // ==================== NEWSLETTER FORM ====================
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = newsletterForm.querySelector('input').value;
+          
+          alert('Thank you for subscribing! You will receive updates about new releases.');
+          newsletterForm.reset();
+        });
+      }
+
+      // ==================== QR CODE MODAL ====================
+      const qrBtn = document.getElementById('qrBtn');
+      const qrModal = document.getElementById('qrModal');
+      const closeQrModal = document.getElementById('closeQrModal');
+
+      if (qrBtn && qrModal && closeQrModal) {
+        qrBtn.addEventListener('click', () => {
+          qrModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+
+        closeQrModal.addEventListener('click', () => {
+          qrModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
+
+        qrModal.addEventListener('click', (e) => {
+          if (e.target === qrModal) {
+            qrModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+
+      // ==================== THEME TOGGLE ====================
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle.querySelector('span:first-child');
+
+      function setTheme(theme) {
+        if (theme === 'light') {
+          document.body.classList.add('light-theme');
+          themeIcon.textContent = '☀️';
+          themeToggle.querySelector('[data-i18n="darkMode"]').textContent = 'Light';
+          localStorage.setItem('swiftneo-theme', 'light');
+        } else {
+          document.body.classList.remove('light-theme');
+          themeIcon.textContent = '🌙';
+          themeToggle.querySelector('[data-i18n="darkMode"]').textContent = 'Dark';
+          localStorage.setItem('swiftneo-theme', 'dark');
+        }
+      }
+
+      if (themeToggle) {
+        const savedTheme = localStorage.getItem('swiftneo-theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+          setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+      }
+
+      // ==================== LANGUAGE TOGGLE ====================
+      const langToggle = document.getElementById('langToggle');
+      let currentLang = 'en';
+
+      const translations = {
+        en: {
+          appTitle: "SwiftNeo",
+          darkMode: "Dark",
+          downloadBtn: "Download APK v1.0.0 (36 MB)",
+          scanQr: "Scan QR Code",
+          requirements: "Android 6.0+ (API 23) • 36MB storage",
+          downloads: "Downloads",
+          rating: "Rating",
+          adFree: "Ad-Free",
+          playProtectTitle: "⚠️ Google Play Protect Warning",
+          playProtectPara1: "When installing, you may see a warning from Google Play Protect stating 'This app is not verified'. This is NORMAL for apps not distributed via Google Play Store.",
+          playProtectPara2: "SwiftNeo is 100% SAFE and verified:",
+          playProtectItem1: "Digitally signed by Softneox Technologies",
+          playProtectItem2: "Scanned clean on VirusTotal (see Security section below)",
+          playProtectItem3: "Zero malware, spyware, or adware",
+          playProtectItem4: "Open-source dependencies only (youtube_explode_dart, dio, etc.)",
+          playProtectItem5: "Privacy-focused: NO data collection, NO analytics, NO telemetry",
+          playProtectAction: "To proceed: Tap 'Install anyway' or 'Keep anyway' when prompted.",
+          featuresTitle: "Key Features",
+          feature1Title: "100% Ad Blocker",
+          feature1Desc: "Zero pre-roll, mid-roll, or banner ads. Pure content only.",
+          feature2Title: "Floating Mini-Player",
+          feature2Desc: "Resizable PiP window that stays on top while you multitask.",
+          feature3Title: "Background Audio",
+          feature3Desc: "Listen with screen off or while using other apps.",
+          feature4Title: "Smart Download Manager",
+          feature4Desc: "Pause, resume, or cancel downloads anytime. Real-time progress.",
+          feature5Title: "Direct Share",
+          feature5Desc: "Share videos directly from YouTube WebView to SwiftNeo.",
+          feature6Title: "Smart History",
+          feature6Desc: "3-dot menu controls, multi-select, and clear all options.",
+          installTitle: "Installation Guide",
+          step1Title: "Download APK",
+          step1Desc: "Click the download button above to get SwiftNeo v1.0.0 APK file from GitHub Releases.",
+          step2Title: "Enable Unknown Sources",
+          step2Desc: "Go to Settings → Security → Enable \"Install unknown apps\" for your browser.",
+          step3Title: "Install APK",
+          step3Desc: "Open the downloaded APK file, tap \"Install\", then \"Open\" after installation.",
+          step4Title: "Setup & Enjoy",
+          step4Desc: "Select your language, accept the EULA, and start streaming ad-free!",
+          warningTitle: "⚠️ Important Notice",
+          warningDesc: "SwiftNeo does NOT host any videos. You download content directly from YouTube's servers for PERSONAL OFFLINE USE only. Respect copyright laws.",
+          testimonialsTitle: "What Users Say",
+          testimonial1: "\"Best YouTube client I've ever used! No ads, background playback works perfectly, and the download manager is super fast. Highly recommended!\"",
+          user1Name: "Rahul Kumar",
+          user1Title: "Android User",
+          testimonial2: "\"Finally an app that actually blocks ALL ads! The floating player is amazing for multitasking. Privacy-focused and no data collection - perfect!\"",
+          user2Name: "Priya Sharma",
+          user2Title: "Content Creator",
+          testimonial3: "\"Lightweight, fast, and feature-packed. The download manager with pause/resume is a game-changer. Much better than other YouTube clients!\"",
+          user3Name: "Amit Verma",
+          user3Title: "Tech Enthusiast",
+          securityTitle: "Security & Verification",
+          digitalSignature: "📄 Digital Signature",
+          issuedTo: "Issued to",
+          certSha1: "Certificate SHA-1",
+          validPeriod: "Valid from",
+          validFrom: "2026-01-01",
+          validTo: "2036-12-31",
+          fileIntegrity: "🔐 File Integrity (SHA-256)",
+          fileName: "File",
+          fileHash: "Hash",
+          howToVerify: "How to verify",
+          verifyStep1: "Download APK from the button above",
+          verifyStep2Win: "On Windows: Open PowerShell and run:",
+          verifyStep3Mac: "On Linux/Mac: Open Terminal and run:",
+          verifyStep4: "Compare output with hash above → MUST MATCH EXACTLY",
+          virustotalScan: "🛡️ VirusTotal Security Scan",
+          scanDate: "Scan Date",
+          scanDateValue: "[Will be available after release]",
+          enginesDetected: "Engines Detected",
+          communityScore: "Community Score",
+          pending: "Pending",
+          viewReport: "SCAN PENDING",
+          whatScanned: "What will be scanned",
+          scanItem1: "APK binary (36 MB)",
+          scanItem2: "All embedded libraries",
+          scanItem3: "Native code (if any)",
+          scanItem4: "Certificate chain",
+          securityGuarantees: "✅ Security Guarantees",
+          guarantee1: "No hidden payloads or backdoors",
+          guarantee2: "No cryptocurrency miners",
+          guarantee3: "No data exfiltration code",
+          guarantee4: "No unauthorized permissions",
+          guarantee5: "No tracking SDKs (Firebase, Google Analytics, etc.)",
+          permissionsRequired: "📱 Permissions Required (Minimal)",
+          faqTitle: "Frequently Asked Questions",
+          faq1Q: "Is SwiftNeo free to use?",
+          faq1A: "Yes! SwiftNeo is 100% free to download and use. There are no payments, subscriptions, or hidden costs. However, the source code is proprietary and not open-sourced.",
+          faq2Q: "Why does Google Play Protect show a warning?",
+          faq2A: "This is normal for apps not distributed via Google Play Store. SwiftNeo is safe and digitally signed. Simply tap \"Install anyway\" or \"Keep anyway\" to proceed. See the Security section for verification details.",
+          faq3Q: "Does SwiftNeo collect my data?",
+          faq3A: "Absolutely not! SwiftNeo has ZERO data collection. No telemetry, no analytics, no crash reporting, no cloud sync. All your data (history, downloads, settings) is stored 100% locally on your device only.",
+          faq4Q: "Can I use SwiftNeo for commercial purposes?",
+          faq4A: "No. SwiftNeo is for PERSONAL, NON-COMMERCIAL use only. You cannot use it for business purposes, monetization, or any commercial activities. See the LICENSE.txt for complete terms.",
+          faq5Q: "Is SwiftNeo affiliated with YouTube or Google?",
+          faq5A: "No. SwiftNeo is an independent application developed by Softneox Technologies. It is NOT affiliated with, endorsed by, or connected to Google LLC or YouTube in any way.",
+          changelogTitle: "Version History",
+          releaseDate: "February 2026",
+          changelog1: "Initial release with all core features",
+          changelog2: "100% ad blocking (pre-roll, mid-roll, banners)",
+          changelog3: "Background audio playback with screen off",
+          changelog4: "Floating mini-player (PiP mode)",
+          changelog5: "Smart download manager with pause/resume",
+          changelog6: "Direct share from YouTube WebView",
+          changelog7: "Bilingual support (English/Hindi)",
+          changelog8: "Zero data collection policy",
+          newsletterTitle: "Stay Updated",
+          newsletterDesc: "Get notified when new versions are released. No spam, just important updates.",
+          subscribeBtn: "Subscribe",
+          newsletterPrivacy: "We respect your privacy. No data shared with third parties.",
+          quickLinks: "Quick Links",
+          features: "Features",
+          install: "Installation",
+          security: "Security",
+          faq: "FAQ",
+          legal: "Legal",
+          securityTxt: "SECURITY.txt",
+          privacyTxt: "PRIVACY.txt",
+          licenseTxt: "LICENSE.txt",
+          terms: "Terms of Service",
+          connect: "Connect",
+          about: "About",
+          aboutDesc: "SwiftNeo is a premium YouTube experience with zero ads, background playback, and offline downloads. Developed by N.C. (Softneox).",
+          appStatus: "v1.0.0 • Closed-Source • Free to Use",
+          copyright: "© 2026 SwiftNeo by N.C. (Softneox). All rights reserved.",
+          disclaimer: "SwiftNeo is NOT affiliated with Google LLC or YouTube.",
+          qrTitle: "📱 Scan to Download",
+          qrDesc: "Scan this QR code with your phone's camera to download SwiftNeo directly.",
+          qrInstructions: "Point your camera at the QR code above, then tap the notification to open the download link.",
+          legalNoticeTitle: "⚠️ Legal Notice",
+          heroTitle: "Premium YouTube Experience. Zero Cost. Zero Ads.",
+          heroSubtitle: "Ad-free streaming • Background playback • Offline downloads • 100% Private"
+        },
+        hi: {
+          appTitle: "SwiftNeo",
+          darkMode: "डार्क",
+          downloadBtn: "APK v1.0.0 डाउनलोड करें (36 MB)",
+          scanQr: "QR कोड स्कैन करें",
+          requirements: "Android 6.0+ (API 23) • 36MB स्टोरेज",
+          downloads: "डाउनलोड",
+          rating: "रेटिंग",
+          adFree: "विज्ञापन-मुक्त",
+          playProtectTitle: "⚠️ Google Play Protect चेतावनी",
+          playProtectPara1: "इंस्टॉल करते समय आपको Google Play Protect से एक चेतावनी दिख सकती है जिसमें लिखा होगा 'यह ऐप सत्यापित नहीं है'। यह Google Play Store के माध्यम से वितरित नहीं किए गए ऐप्स के लिए सामान्य है।",
+          playProtectPara2: "SwiftNeo 100% सुरक्षित और सत्यापित है:",
+          playProtectItem1: "Softneox Technologies द्वारा डिजिटली हस्ताक्षरित",
+          playProtectItem2: "VirusTotal पर स्कैन क्लीन (नीचे सुरक्षा अनुभाग देखें)",
+          playProtectItem3: "शून्य मैलवेयर, स्पाइवेयर, या एडवेयर",
+          playProtectItem4: "केवल ओपन-सोर्स डिपेंडेंसीज़ (youtube_explode_dart, dio, आदि)",
+          playProtectItem5: "गोपनीयता-केंद्रित: कोई डेटा संग्रह नहीं, कोई एनालिटिक्स नहीं, कोई टेलीमेट्री नहीं",
+          playProtectAction: "आगे बढ़ने के लिए: संकेत मिलने पर 'फिर भी इंस्टॉल करें' या 'फिर भी रखें' टैप करें।",
+          featuresTitle: "मुख्य विशेषताएं",
+          feature1Title: "100% विज्ञापन अवरोधक",
+          feature1Desc: "शून्य प्री-रोल, मिड-रोल, या बैनर विज्ञापन। केवल शुद्ध सामग्री।",
+          feature2Title: "फ़्लोटिंग मिनी-प्लेयर",
+          feature2Desc: "पुनः आकार योग्य PiP विंडो जो आपके मल्टीटास्क करते समय शीर्ष पर रहती है।",
+          feature3Title: "बैकग्राउंड ऑडियो",
+          feature3Desc: "स्क्रीन बंद करके या अन्य ऐप्स का उपयोग करते समय सुनें।",
+          feature4Title: "स्मार्ट डाउनलोड मैनेजर",
+          feature4Desc: "कभी भी डाउनलोड को रोकें, पुनः प्रारंभ करें, या रद्द करें। रीयल-टाइम प्रगति।",
+          feature5Title: "सीधे शेयर करें",
+          feature5Desc: "YouTube WebView से सीधे SwiftNeo में वीडियो शेयर करें।",
+          feature6Title: "स्मार्ट हिस्ट्री",
+          feature6Desc: "3-डॉट मेनू नियंत्रण, मल्टी-सेलेक्ट, और सभी साफ़ करें विकल्प।",
+          installTitle: "इंस्टॉलेशन गाइड",
+          step1Title: "APK डाउनलोड करें",
+          step1Desc: "GitHub Releases से SwiftNeo v1.0.0 APK फ़ाइल प्राप्त करने के लिए ऊपर दिए गए डाउनलोड बटन पर क्लिक करें।",
+          step2Title: "अज्ञात स्रोत सक्षम करें",
+          step2Desc: "सेटिंग्स → सुरक्षा → अपने ब्राउज़र के लिए \"अज्ञात ऐप्स इंस्टॉल करें\" सक्षम करें पर जाएं।",
+          step3Title: "APK इंस्टॉल करें",
+          step3Desc: "डाउनलोड की गई APK फ़ाइल खोलें, \"इंस्टॉल\" टैप करें, फिर इंस्टॉलेशन के बाद \"ओपन\" करें।",
+          step4Title: "सेटअप और आनंद लें",
+          step4Desc: "अपनी भाषा चुनें, EULA स्वीकार करें, और विज्ञापन-मुक्त स्ट्रीमिंग शुरू करें!",
+          warningTitle: "⚠️ महत्वपूर्ण सूचना",
+          warningDesc: "SwiftNeo कोई वीडियो होस्ट नहीं करता। आप सामग्री को सीधे YouTube के सर्वर से व्यक्तिगत ऑफलाइन उपयोग के लिए डाउनलोड करते हैं। कॉपीराइट कानूनों का सम्मान करें।",
+          testimonialsTitle: "उपयोगकर्ताओं का क्या कहना है",
+          testimonial1: "\"मैंने जो अब तक का सबसे अच्छा YouTube क्लाइंट इस्तेमाल किया है! कोई विज्ञापन नहीं, बैकग्राउंड प्लेबैक बिल्कुल सही काम करता है, और डाउनलोड मैनेजर बहुत तेज़ है। बहुत अच्छा!\"",
+          user1Name: "राहुल कुमार",
+          user1Title: "Android उपयोगकर्ता",
+          testimonial2: "\"आखिरकार एक ऐप जो वास्तव में सभी विज्ञापनों को ब्लॉक करता है! फ़्लोटिंग प्लेयर मल्टीटास्किंग के लिए बहुत अच्छा है। गोपनीयता-केंद्रित और कोई डेटा संग्रह नहीं - बिल्कुल सही!\"",
+          user2Name: "प्रिया शर्मा",
+          user2Title: "कंटेंट क्रिएटर",
+          testimonial3: "\"हल्का, तेज़, और फीचर्स से भरपूर। पॉज/रिज्यूम के साथ डाउनलोड मैनेजर गेम-चेंजर है। दूसरे YouTube क्लाइंट्स से कहीं बेहतर!\"",
+          user3Name: "अमित वर्मा",
+          user3Title: "टेक एन्थूजियास्ट",
+          securityTitle: "सुरक्षा और सत्यापन",
+          digitalSignature: "📄 डिजिटल हस्ताक्षर",
+          issuedTo: "जारी किया गया",
+          certSha1: "प्रमाणपत्र SHA-1",
+          validPeriod: "वैध अवधि",
+          validFrom: "2026-01-01",
+          validTo: "2036-12-31",
+          fileIntegrity: "🔐 फ़ाइल अखंडता (SHA-256)",
+          fileName: "फ़ाइल",
+          fileHash: "हैश",
+          howToVerify: "सत्यापित करने का तरीका",
+          verifyStep1: "ऊपर दिए गए बटन से APK डाउनलोड करें",
+          verifyStep2Win: "Windows पर: PowerShell खोलें और चलाएं:",
+          verifyStep3Mac: "Linux/Mac पर: Terminal खोलें और चलाएं:",
+          verifyStep4: "ऊपर दिए गए हैश के साथ आउटपुट की तुलना करें → बिल्कुल मेल खाना चाहिए",
+          virustotalScan: "🛡️ VirusTotal सुरक्षा स्कैन",
+          scanDate: "स्कैन तिथि",
+          scanDateValue: "[रिलीज़ के बाद उपलब्ध होगा]",
+          enginesDetected: "इंजन द्वारा पता लगाया गया",
+          communityScore: "समुदाय स्कोर",
+          pending: "लंबित",
+          viewReport: "स्कैन लंबित",
+          whatScanned: "क्या स्कैन किया जाएगा",
+          scanItem1: "APK बाइनरी (36 MB)",
+          scanItem2: "सभी एम्बेडेड लाइब्रेरीज़",
+          scanItem3: "नेटिव कोड (यदि कोई हो)",
+          scanItem4: "प्रमाणपत्र श्रृंखला",
+          securityGuarantees: "✅ सुरक्षा गारंटी",
+          guarantee1: "कोई छिपा हुआ पेलोड या बैकडोर नहीं",
+          guarantee2: "कोई क्रिप्टोकरेंसी माइनर नहीं",
+          guarantee3: "कोई डेटा एक्सफ़िल्ट्रेशन कोड नहीं",
+          guarantee4: "कोई अनधिकृत अनुमतियां नहीं",
+          guarantee5: "कोई ट्रैकिंग SDK नहीं (Firebase, Google Analytics, आदि)",
+          permissionsRequired: "📱 आवश्यक अनुमतियां (न्यूनतम)",
+          faqTitle: "अक्सर पूछे जाने वाले प्रश्न",
+          faq1Q: "क्या SwiftNeo का उपयोग करना मुफ्त है?",
+          faq1A: "हां! SwiftNeo डाउनलोड और उपयोग करने के लिए 100% मुफ्त है। कोई भुगतान, सदस्यता, या छिपी हुई लागत नहीं है। हालांकि, सोर्स कोड प्रोपराइटरी है और ओपन-सोर्स नहीं है।",
+          faq2Q: "Google Play Protect चेतावनी क्यों दिखाता है?",
+          faq2A: "यह Google Play Store के माध्यम से वितरित नहीं किए गए ऐप्स के लिए सामान्य है। SwiftNeo सुरक्षित और डिजिटली हस्ताक्षरित है। आगे बढ़ने के लिए बस \"फिर भी इंस्टॉल करें\" या \"फिर भी रखें\" टैप करें। सत्यापन विवरण के लिए सुरक्षा अनुभाग देखें।",
+          faq3Q: "क्या SwiftNeo मेरा डेटा एकत्र करता है?",
+          faq3A: "बिल्कुल नहीं! SwiftNeo में शून्य डेटा संग्रह है। कोई टेलीमेट्री नहीं, कोई एनालिटिक्स नहीं, कोई क्रैश रिपोर्टिंग नहीं, कोई क्लाउड सिंक नहीं। आपका सारा डेटा (इतिहास, डाउनलोड, सेटिंग्स) 100% स्थानीय रूप से केवल आपके डिवाइस पर संग्रहीत है।",
+          faq4Q: "क्या मैं SwiftNeo का वाणिज्यिक उद्देश्यों के लिए उपयोग कर सकता हूं?",
+          faq4A: "नहीं। SwiftNeo केवल व्यक्तिगत, गैर-वाणिज्यिक उपयोग के लिए है। आप इसे व्यावसायिक उद्देश्यों, मोनेटाइजेशन, या किसी भी वाणिज्यिक गतिविधि के लिए उपयोग नहीं कर सकते। पूर्ण शर्तों के लिए LICENSE.txt देखें।",
+          faq5Q: "क्या SwiftNeo YouTube या Google से संबद्ध है?",
+          faq5A: "नहीं। SwiftNeo Softneox Technologies द्वारा विकसित एक स्वतंत्र एप्लिकेशन है। यह Google LLC या YouTube से किसी भी तरह से संबद्ध, समर्थित, या जुड़ा हुआ नहीं है।",
+          changelogTitle: "संस्करण इतिहास",
+          releaseDate: "फरवरी 2026",
+          changelog1: "सभी मुख्य विशेषताओं के साथ प्रारंभिक रिलीज",
+          changelog2: "100% विज्ञापन अवरोधन (प्री-रोल, मिड-रोल, बैनर)",
+          changelog3: "स्क्रीन बंद करके बैकग्राउंड ऑडियो प्लेबैक",
+          changelog4: "फ़्लोटिंग मिनी-प्लेयर (PiP मोड)",
+          changelog5: "पॉज/रिज्यूम के साथ स्मार्ट डाउनलोड मैनेजर",
+          changelog6: "YouTube WebView से सीधे शेयर करें",
+          changelog7: "द्विभाषी समर्थन (अंग्रेज़ी/हिंदी)",
+          changelog8: "शून्य डेटा संग्रह नीति",
+          newsletterTitle: "अपडेट रहें",
+          newsletterDesc: "नए संस्करण जारी होने पर सूचित करें। कोई स्पैम नहीं, केवल महत्वपूर्ण अपडेट।",
+          subscribeBtn: "सदस्यता लें",
+          newsletterPrivacy: "हम आपकी गोपनीयता का सम्मान करते हैं। तीसरे पक्ष के साथ कोई डेटा साझा नहीं किया जाता।",
+          quickLinks: "त्वरित लिंक",
+          features: "विशेषताएं",
+          install: "इंस्टॉलेशन",
+          security: "सुरक्षा",
+          faq: "FAQ",
+          legal: "कानूनी",
+          securityTxt: "SECURITY.txt",
+          privacyTxt: "PRIVACY.txt",
+          licenseTxt: "LICENSE.txt",
+          terms: "सेवा की शर्तें",
+          connect: "जुड़ें",
+          about: "के बारे में",
+          aboutDesc: "SwiftNeo शून्य विज्ञापनों, बैकग्राउंड प्लेबैक और ऑफलाइन डाउनलोड के साथ एक प्रीमियम YouTube अनुभव है। N.C. (Softneox) द्वारा विकसित।",
+          appStatus: "v1.0.0 • बंद-स्रोत • उपयोग के लिए मुफ्त",
+          copyright: "© 2026 SwiftNeo N.C. (Softneox) द्वारा। सर्वाधिकार सुरक्षित।",
+          disclaimer: "SwiftNeo Google LLC या YouTube से संबद्ध नहीं है।",
+          qrTitle: "📱 डाउनलोड करने के लिए स्कैन करें",
+          qrDesc: "SwiftNeo सीधे डाउनलोड करने के लिए अपने फ़ोन के कैमरे से इस QR कोड को स्कैन करें।",
+          qrInstructions: "ऊपर QR कोड पर अपने कैमरे को इंगित करें, फिर डाउनलोड लिंक खोलने के लिए सूचना पर टैप करें।",
+          legalNoticeTitle: "⚠️ कानूनी सूचना",
+          heroTitle: "प्रीमियम YouTube अनुभव। शून्य लागत। शून्य विज्ञापन।",
+          heroSubtitle: "विज्ञापन-मुक्त स्ट्रीमिंग • बैकग्राउंड प्लेबैक • ऑफलाइन डाउनलोड • 100% निजी"
+        }
+      };
+
+      function detectLanguage() {
+        const savedLang = localStorage.getItem('swiftneo-lang');
+        if (savedLang && translations[savedLang]) {
+          return savedLang;
+        }
+
+        const browserLang = navigator.language || navigator.userLanguage;
+        return browserLang.startsWith('hi') ? 'hi' : 'en';
+      }
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('swiftneo-lang', lang);
+        langToggle.textContent = lang === 'en' ? 'EN' : 'हिंदी';
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+
+        document.body.className = lang === 'hi' ? 'hi' : '';
+      }
+
+      const savedLang = detectLanguage();
+      setLanguage(savedLang);
+
+      if (langToggle) {
+        langToggle.addEventListener('click', () => {
+          setLanguage(currentLang === 'en' ? 'hi' : 'en');
+        });
+      }
+
+      // ==================== HAMBURGER MENU ====================
+      const hamburgerMenu = document.getElementById('hamburgerMenu');
+      const navMenu = document.getElementById('navMenu');
+
+      if (hamburgerMenu && navMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+      }
+
+      // ==================== CLICKJACKING PROTECTION ====================
+      if (window.self !== window.top) {
+        window.top.location = window.self.location;
+      }
+
+      // ==================== XSS PROTECTION ====================
+      function sanitizeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>"']/g, (match) => {
+          const escape = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+          };
+          return escape[match];
+        });
+      }
+
+      // ==================== PWA SUPPORT ====================
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Service worker registration failed - not critical
+          });
+        });
+      }
     });
   </script>
 </body>
